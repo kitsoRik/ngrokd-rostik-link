@@ -13,7 +13,7 @@ import (
 
 const (
 	NotAuthorized = `HTTP/1.0 401 Not Authorized
-WWW-Authenticate: Basic realm="localhost"
+WWW-Authenticate: Basic realm="ngrokd.rostik.link"
 Content-Length: 23
 
 Authorization required
