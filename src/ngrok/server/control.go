@@ -219,6 +219,8 @@ func (c *Control) writer() {
 		c.conn.SetWriteDeadline(time.Now().Add(controlWriteTimeout))
 		if err := msg.WriteMsg(c.conn, m); err != nil {
 			panic(err)
+		} else {
+			
 		}
 	}
 }
@@ -297,7 +299,7 @@ func (c *Control) RegisterProxy(conn conn.Conn) {
 	conn.SetDeadline(time.Now().Add(proxyStaleDuration))
 	select {
 	case c.proxies <- conn:
-		conn.Info("Registered")
+		conn.Info("Registered, %s", conn.Id())
 	default:
 		conn.Info("Proxies buffer is full, discarding.")
 		conn.Close()

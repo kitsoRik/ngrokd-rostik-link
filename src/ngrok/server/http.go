@@ -7,13 +7,12 @@ import (
 	//"net"
 	"ngrok/conn"
 	"ngrok/log"
-	"strings"
 	"time"
 )
 
 const (
 	NotAuthorized = `HTTP/1.0 401 Not Authorized
-WWW-Authenticate: Basic realm="ngrok"
+WWW-Authenticate: Basic realm="localhost"
 Content-Length: 23
 
 Authorization required
@@ -77,7 +76,7 @@ func httpHandler(c conn.Conn, proto string) {
 	}
 
 	// read out the Host header and auth from the request
-	host := strings.ToLower(vhostConn.Host())
+	host := "localhost" //strings.ToLower(vhostConn.Host())
 	auth := vhostConn.Request.Header.Get("Authorization")
 
 	// done reading mux data, free up the request memory

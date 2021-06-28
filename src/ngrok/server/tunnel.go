@@ -275,6 +275,7 @@ func (t *Tunnel) HandlePublicConnection(publicConn conn.Conn) {
 			proxyConn.Warn("Failed to write StartProxyMessage: %v, attempt %d", err, i)
 			proxyConn.Close()
 		} else {
+			proxyConn.Warn("ALL OK")
 			// success
 			break
 		}
