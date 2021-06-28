@@ -220,7 +220,7 @@ func (c *Control) writer() {
 		if err := msg.WriteMsg(c.conn, m); err != nil {
 			panic(err)
 		} else {
-			
+
 		}
 	}
 }
